@@ -13,8 +13,24 @@ public class CommonResult<T> {
 
     private T data;
 
+    /**
+     * 成功时调用
+     * @param data
+     * @param <T>
+     * @return
+     */
     public static <T> CommonResult<T> success(T data){
         return new CommonResult(data);
+    }
+
+
+    /**
+     * 失败时调用
+     * @param codeMsg
+     * @return
+     */
+    public static CommonResult fail(CommonCodeMsg codeMsg){
+        return new CommonResult(codeMsg);
     }
 
 
