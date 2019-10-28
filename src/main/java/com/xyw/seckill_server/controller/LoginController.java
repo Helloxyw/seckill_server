@@ -1,8 +1,10 @@
 package com.xyw.seckill_server.controller;
 
 import com.xyw.seckill_server.result.CommonResult;
+import com.xyw.seckill_server.service.intf.UserService;
 import com.xyw.seckill_server.vo.LoginVo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +18,8 @@ import javax.validation.Valid;
 @Slf4j
 public class LoginController {
 
+    @Autowired
+    private UserService userService;
     
     /**
     * @Description: 跳转登陆
@@ -38,8 +42,11 @@ public class LoginController {
     @RequestMapping("do_login")
     @ResponseBody
     public CommonResult<String> doLogin(HttpServletResponse response, @Valid LoginVo loginVo){
+        log.info(loginVo.toString());
 
-        return CommonResult.success(null);
+        //登录
+        String token = userService.login(response, loginVo);
+        return CommonResult.success(token);
     }
 
 }

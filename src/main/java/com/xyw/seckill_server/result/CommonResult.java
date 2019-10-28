@@ -29,7 +29,7 @@ public class CommonResult<T> {
      * @param codeMsg
      * @return
      */
-    public static CommonResult fail(CommonCodeMsg codeMsg){
+    public static CommonResult error(CommonCodeMsg codeMsg){
         return new CommonResult(codeMsg);
     }
 
