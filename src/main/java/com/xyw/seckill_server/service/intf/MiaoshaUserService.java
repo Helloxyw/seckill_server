@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @createTime 2019年10月28日 22:50:00
  */
 @Service
-public interface UserService {
+public interface MiaoshaUserService {
 
     /***
     * @Description: 登录
@@ -22,4 +22,6 @@ public interface UserService {
     * @Date: 2019/10/28
     */
     String login(HttpServletResponse response, LoginVo loginVo);
+
+
 }

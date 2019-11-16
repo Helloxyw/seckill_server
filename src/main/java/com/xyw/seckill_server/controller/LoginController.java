@@ -1,7 +1,7 @@
 package com.xyw.seckill_server.controller;
 
 import com.xyw.seckill_server.result.CommonResult;
-import com.xyw.seckill_server.service.intf.UserService;
+import com.xyw.seckill_server.service.intf.MiaoshaUserService;
 import com.xyw.seckill_server.vo.LoginVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import javax.validation.Valid;
 public class LoginController {
 
     @Autowired
-    private UserService userService;
+    private MiaoshaUserService miaoshaUserService;
     
     /**
     * @Description: 跳转登陆
@@ -45,7 +45,7 @@ public class LoginController {
         log.info(loginVo.toString());
 
         //登录
-        String token = userService.login(response, loginVo);
+        String token = miaoshaUserService.login(response, loginVo);
         return CommonResult.success(token);
     }
 
