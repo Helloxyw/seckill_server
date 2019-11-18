@@ -1,7 +1,6 @@
 package com.xyw.seckill_server.domain;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.ToString;
 
 import java.util.Date;
